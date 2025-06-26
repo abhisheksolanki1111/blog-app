@@ -3,7 +3,7 @@ services:
     name: blog-app
     env: docker
     plan: free
-    repo: https://github.com/YOUR_USERNAME/blog-app
+    repo: https://github.com/abhisheksolanki1111/blog-app
     branch: main
     dockerfilePath: ./Dockerfile
     envVars:
