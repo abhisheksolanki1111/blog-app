@@ -1,22 +1,27 @@
 services:
   - type: web
     name: blog-app
-    runtime: php
+    env: docker
     plan: free
-    repo: https://github.com/YOUR_USERNAME/YOUR_REPO_NAME
+    repo: https://github.com/YOUR_USERNAME/blog-app
     branch: main
-    buildCommand: composer install
-    startCommand: php artisan serve --host=0.0.0.0 --port=10000
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
         value: true
+      - key: APP_KEY
+        value: # will set later after deploy
       - key: DB_CONNECTION
-        value: sqlite
+        value: mysql
+      - key: DB_HOST
+        value: YOUR_DB_HOST
+      - key: DB_PORT
+        value: 3306
       - key: DB_DATABASE
-        value: /var/data/database.sqlite
-    disk:
-      name: blog-data
-      mountPath: /var/data
-      sizeGB: 1
+        value: blog_app
+      - key: DB_USERNAME
+        value: laravel
+      - key: DB_PASSWORD
+        value: secret
