@@ -25,3 +25,7 @@ services:
         value: laravel
       - key: DB_PASSWORD
         value: secret
+    disk:
+      name: blog-app-disk
+      mountPath: /var/www/html/storage
+      sizeGB: 1
