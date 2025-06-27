@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->route('posts.index');
 });
-
+Route::get('/test', function () {
+    return view('layouts.app');
+});
 // Categories Resource
 Route::resource('categories', CategoryController::class);
 
